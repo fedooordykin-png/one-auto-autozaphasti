@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>One Auto — автозапчасти по артикулу</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="logo" href="#">One&nbsp;Auto<span class="logo-sub">автозапчасти по артикулу</span></a>
+      <nav class="nav">
+        <a href="#catalog">Каталог</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section id="catalog" class="hero">
+      <h1>Поиск автозапчастей по артикулу</h1>
+      <p class="muted">Введите номер детали — покажем цену, бренд и наличие. Или загрузите свой прайс в Excel.</p>
+    </section>
+
+    <section class="toolbar" aria-label="Поиск и фильтры">
+      <div class="toolbar-row">
+        <label class="file-btn" for="fileInput" title="Загрузить прайс в формате Excel (.xlsx, .xls, .csv)">
+          <span class="file-btn-ico" aria-hidden="true">⬆</span> Загрузить Excel
+        </label>
+        <input type="file" id="fileInput" accept=".xlsx,.xls,.csv" hidden>
+
+        <input type="search" id="searchInput" class="search"
+               placeholder="Введите артикул, например 04466-60161"
+               autocomplete="off" spellcheck="false"
+               aria-label="Поиск по артикулу">
+
+        <select id="brandFilter" class="brand-filter" aria-label="Фильтр по бренду">
+          <option value="">Все бренды</option>
+        </select>
+      </div>
+      <div class="toolbar-status">
+        <span id="sourceInfo" class="source">Данные каталога не загружены</span>
+        <span class="status-right">
+          <button id="resetBtn" class="link-btn" type="button" hidden>Показать каталог прайс.xlsx</button>
+          <span id="counter" class="counter"></span>
+        </span>
+      </div>
+      <p id="message" class="message" role="status" hidden></p>
+    </section>
+
+    <section class="results" aria-live="polite">
+      <table class="parts-table">
+        <thead>
+          <tr>
+            <th>Артикул</th>
+            <th>Бренд</th>
+            <th>Цена</th>
+            <th>Наличие</th>
+          </tr>
+        </thead>
+        <tbody id="resultsBody"></tbody>
+      </table>
+      <p id="hint" class="hint">Введите артикул в поле поиска или загрузите файл прайса.</p>
+    </section>
+
+    <section id="contacts" class="contacts">
+      <h2>Контакты</h2>
+      <div class="contacts-grid">
+        <div class="contact-card">
+          <h3>Телефон</h3>
+          <p><a href="tel:+70000000000">+7 (000) 000-00-00</a></p>
+        </div>
+        <div class="contact-card">
+          <h3>Адрес</h3>
+          <p>г. Город, ул. Улица, д. 0</p>
+        </div>
+        <div class="contact-card">
+          <h3>Режим работы</h3>
+          <p>Пн–Сб 9:00–18:00</p>
+        </div>
+        <div class="contact-card">
+          <h3>Почта</h3>
+          <p><a href="mailto:info@example.com">info@example.com</a></p>
+        </div>
+      </div>
+      <p class="muted contacts-note">Телефон, адрес, режим работы и почта — заполните своими данными перед публикацией.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© One Auto — автозапчасти по артикулу</p>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
